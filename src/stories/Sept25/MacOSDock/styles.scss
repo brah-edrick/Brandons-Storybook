@@ -1,0 +1,69 @@
+@import "../AppIcons/styles.scss";
+// MacOS Dock component styles
+
+$scale-factor-lg: calc(8 / 5);
+$scale-factor-md: calc(7 / 5);
+$scale-factor-sm: calc(6 / 5);
+$scale-factor-xs: 1;
+
+.macos-dock-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-icon-wrapper {
+  width: $base-size-small;
+  height: $base-size-small;
+  transition: width 0.25s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc($base-size-small * 0.15);
+
+  .app-icon {
+    aspect-ratio: 1/1;
+    scale: 1;
+    transition: scale 0.25s linear;
+    transform-origin: bottom center;
+  }
+
+  &:has(+ .app-icon-wrapper:hover) {
+    width: calc($base-size-small * $scale-factor-md);
+    .app-icon {
+      scale: $scale-factor-md;
+    }
+  }
+
+  &:has(+ .app-icon-wrapper + .app-icon-wrapper:hover) {
+    width: calc($base-size-small * $scale-factor-sm);
+    .app-icon {
+      scale: $scale-factor-sm;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    width: calc($base-size-small * $scale-factor-lg);
+    .app-icon {
+      scale: $scale-factor-lg;
+    }
+
+    + .app-icon-wrapper {
+      width: calc($base-size-small * $scale-factor-md);
+      .app-icon {
+        scale: $scale-factor-md;
+      }
+    }
+
+    + .app-icon-wrapper + .app-icon-wrapper {
+      width: calc($base-size-small * $scale-factor-sm);
+      .app-icon {
+        scale: $scale-factor-sm;
+      }
+    }
+  }
+}

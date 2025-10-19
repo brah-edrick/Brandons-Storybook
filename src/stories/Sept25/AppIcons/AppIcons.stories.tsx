@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { AppIcon } from "./AppIcons";
+import { AppIcon, Fauxtos, Lazy, Puzzle, Strata, Taurus } from "./AppIcons";
 import { ApertureIcon } from "@phosphor-icons/react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -39,139 +39,66 @@ export const Default: Story = {
   ),
 };
 
-export const Fauxtos: Story = {
+export const FauxtosIcon: Story = {
   args: {
     size: "medium",
   },
   render: (args) => (
     <div className="app-icons-container">
       <AppIcon {...args}>
-        <div className="flower scale">
-          <div className="petal"></div>
-          <div className="petal"></div>
-          <div className="petal"></div>
-          <div className="petal"></div>
-          <div className="petal"></div>
-          <div className="petal"></div>
-          <div className="petal"></div>
-          <div className="petal"></div>
-        </div>
+        <Fauxtos />
       </AppIcon>
     </div>
   ),
 };
 
-export const Taurus: Story = {
+export const TaurusIcon: Story = {
   args: {
     size: "medium",
   },
   render: (args) => (
     <div className="app-icons-container">
       <AppIcon {...args}>
-        <div className="star scale"></div>
+        <Taurus />
       </AppIcon>
     </div>
   ),
 };
 
-export const Puzzle: Story = {
+export const PuzzleIcon: Story = {
   args: {
     size: "medium",
   },
   render: (args) => (
     <div className="app-icons-container">
       <AppIcon {...args}>
-        <div className="puzzle">
-          <div className="black" style={{ gridColumn: "1 / 3" }}></div>
-          <div className="yellow"></div>
-          <div className="blue"></div>
-          <div className="blue"></div>
-          <div className="green"></div>
-          <div
-            className="black"
-            style={{ gridRow: "2 / 4", gridColumn: "3 / 5" }}
-          ></div>
-          <div className="black"></div>
-          <div className="yellow"></div>
-        </div>
+        <Puzzle />
       </AppIcon>
     </div>
   ),
 };
 
-export const Lazy: Story = {
+export const LazyIcon: Story = {
   args: {
     size: "medium",
   },
   render: (args) => (
     <div className="app-icons-container">
       <AppIcon {...args}>
-        <div className="lazy">
-          <div
-            className="blue"
-            style={{ gridColumn: "2", gridRow: "1 / 3" }}
-          ></div>
-          <div
-            className="blue"
-            style={{
-              gridColumn: "1",
-              gridRow: "2",
-              borderBottomRightRadius: 0,
-            }}
-          ></div>
-          <div
-            className="green"
-            style={{ gridColumn: "3 / 5", gridRow: "2" }}
-          ></div>
-          <div
-            className="green"
-            style={{
-              gridColumn: "3",
-              gridRow: "1",
-              borderBottomLeftRadius: 0,
-            }}
-          ></div>
-          <div
-            className="red"
-            style={{ gridColumn: "3", gridRow: "3 / 5" }}
-          ></div>
-          <div
-            className="red"
-            style={{
-              gridColumn: "4",
-              gridRow: "3",
-              borderTopLeftRadius: 0,
-            }}
-          ></div>
-          <div
-            className="yellow"
-            style={{ gridColumn: "1 / 3", gridRow: "3" }}
-          ></div>
-          <div
-            className="yellow"
-            style={{
-              gridColumn: "2",
-              gridRow: "4",
-              borderTopRightRadius: 0,
-            }}
-          ></div>
-        </div>
+        <Lazy />
       </AppIcon>
     </div>
   ),
 };
 
-export const Strata: Story = {
+export const StrataIcon: Story = {
   args: {
     size: "medium",
   },
   render: (args) => (
     <div className="app-icons-container">
       <AppIcon {...args}>
-        <div className="strata">
-          <div className="triangle"></div>
-          <div className="triangle"></div>
-        </div>
+        <Strata />
       </AppIcon>
     </div>
   ),
