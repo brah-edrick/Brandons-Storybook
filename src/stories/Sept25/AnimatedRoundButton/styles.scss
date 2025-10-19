@@ -1,0 +1,207 @@
+@import "open-color/open-color";
+// dimensions
+$small-size: 32px;
+$medium-size: 48px;
+$large-size: 64px;
+
+// static colors
+$border-color: $oc-gray-2;
+$icon-color: $oc-gray-4;
+$background-color: $oc-white;
+
+$colors: ("yellow", "blue", "green", "red", "purple", "orange", "pink");
+// Color mapping function
+@function get-color($color-name, $shade) {
+  @if $color-name == "yellow" {
+    @if $shade == "dark" {
+      @return $oc-yellow-5;
+    }
+    @if $shade == "light" {
+      @return $oc-yellow-7;
+    }
+  }
+  @if $color-name == "blue" {
+    @if $shade == "dark" {
+      @return $oc-blue-5;
+    }
+    @if $shade == "light" {
+      @return $oc-blue-7;
+    }
+  }
+  @if $color-name == "green" {
+    @if $shade == "dark" {
+      @return $oc-green-5;
+    }
+    @if $shade == "light" {
+      @return $oc-green-7;
+    }
+  }
+  @if $color-name == "red" {
+    @if $shade == "dark" {
+      @return $oc-red-5;
+    }
+    @if $shade == "light" {
+      @return $oc-red-7;
+    }
+  }
+  @if $color-name == "purple" {
+    @if $shade == "dark" {
+      @return $oc-violet-5;
+    }
+    @if $shade == "light" {
+      @return $oc-violet-7;
+    }
+  }
+  @if $color-name == "orange" {
+    @if $shade == "dark" {
+      @return $oc-orange-5;
+    }
+    @if $shade == "light" {
+      @return $oc-orange-7;
+    }
+  }
+  @if $color-name == "pink" {
+    @if $shade == "dark" {
+      @return $oc-pink-5;
+    }
+    @if $shade == "light" {
+      @return $oc-pink-7;
+    }
+  }
+  // Default fallback
+  @return $oc-gray-5;
+}
+
+// animations
+$animation-delay: 1s;
+$animation-duration: 8s;
+$animation-timing-function: ease-in-out;
+$animation-timing-function-2: linear;
+
+.animated-media-button {
+  border-radius: 50%;
+  border: 1px solid $border-color;
+  background-color: $background-color;
+  cursor: pointer;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &-icon {
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.5s ease-in-out;
+
+    // Control icon size based on button size
+    svg {
+      width: 1em;
+      height: 1em;
+      fill: $icon-color;
+    }
+  }
+
+  &:before,
+  &:after {
+    transition: opacity 0.5s ease-in-out;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 100%;
+    opacity: 0.4;
+  }
+
+  &:before {
+    animation: rotate1 $animation-duration $animation-timing-function infinite;
+  }
+
+  &:after {
+    animation-delay: $animation-delay;
+    animation: rotate2 $animation-duration $animation-timing-function-2 infinite;
+  }
+
+  &.small {
+    width: $small-size;
+    height: $small-size;
+
+    .animated-media-button-icon svg {
+      width: calc($small-size / 2);
+      height: calc($small-size / 2);
+    }
+  }
+
+  &.medium {
+    width: $medium-size;
+    height: $medium-size;
+
+    .animated-media-button-icon svg {
+      width: calc($medium-size / 2);
+      height: calc($medium-size / 2);
+    }
+  }
+
+  &.large {
+    width: $large-size;
+    height: $large-size;
+
+    .animated-media-button-icon svg {
+      width: calc($large-size / 2);
+      height: calc($large-size / 2);
+    }
+  }
+
+  &:hover {
+    &:before,
+    &:after {
+      opacity: 0.6;
+    }
+
+    .animated-media-button-icon {
+      opacity: 1;
+    }
+  }
+
+  // Color variants
+  @each $color in $colors {
+    &.#{$color} {
+      &:before {
+        background-color: get-color($color, "dark");
+      }
+      &:after {
+        background-color: get-color($color, "light");
+      }
+    }
+  }
+}
+
+@keyframes rotate1 {
+  0% {
+    transform: rotate(0deg) scaleY(1.15);
+  }
+  50% {
+    transform: rotate(180deg) scaleY(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scaleY(1.15);
+  }
+}
+
+@keyframes rotate2 {
+  0% {
+    transform: rotate(90deg) scaleY(1.15);
+  }
+  50% {
+    transform: rotate(270deg) scaleY(1.25);
+  }
+  100% {
+    transform: rotate(450deg) scaleY(1.15);
+  }
+}
