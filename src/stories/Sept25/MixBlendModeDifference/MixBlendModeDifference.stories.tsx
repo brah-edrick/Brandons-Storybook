@@ -4,7 +4,7 @@ import { MixBlendModeDifference } from "./MixBlendModeDifference";
 import { MouseScrollIcon, SpiralIcon } from "@phosphor-icons/react";
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Sept 25/ 25.09.24 - Mix-Blend-Mode: Difference",
+  title: "2025 / Sept 24th - Mix-Blend-Mode: Difference",
   component: MixBlendModeDifference,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

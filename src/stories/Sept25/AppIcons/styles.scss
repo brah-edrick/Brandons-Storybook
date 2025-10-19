@@ -1,0 +1,220 @@
+@import "open-color/open-color";
+// App Icons component styles
+$base-size: 72px;
+$base-size-small: calc($base-size * 0.66666666);
+$base-size-large: calc($base-size * 1.33333333);
+
+.app-icon {
+  width: $base-size;
+  height: $base-size;
+  border: 1px solid $oc-gray-3;
+  border-radius: 50%;
+  corner-shape: squircle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &.small {
+    width: $base-size-small;
+    height: $base-size-small;
+  }
+
+  &.large {
+    width: $base-size-large;
+    height: $base-size-large;
+  }
+}
+
+$petal-height: calc(0.36 * $base-size);
+$petal-width: calc(0.2 * $base-size);
+$border-radius: calc($petal-width / 2);
+$offset: calc($petal-width / 5);
+$offset-angled: cos(45deg) * $offset;
+
+.small .scale {
+  scale: 0.66666666;
+}
+
+.large .scale {
+  scale: 1.33333333;
+}
+
+.flower {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  .petal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: $petal-height;
+    width: $petal-width;
+    background-color: $oc-gray-9;
+    border-radius: $border-radius;
+    transform-origin: top center;
+    transform: translate(-50%, -50%) rotate(4deg);
+    opacity: 0.8;
+    &:nth-child(1) {
+      background-color: $oc-blue-5;
+      transform: translate(-$border-radius - $offset, 0) rotate(90deg);
+    }
+    &:nth-child(2) {
+      background-color: $oc-red-5;
+      transform: translate(-$border-radius, $offset) rotate(0deg);
+    }
+    &:nth-child(3) {
+      background-color: $oc-green-5;
+      transform: translate(-$border-radius + $offset, 0) rotate(-90deg);
+    }
+    &:nth-child(4) {
+      background-color: $oc-lime-5;
+      transform: translate(-$border-radius, -$offset) rotate(-180deg);
+    }
+    &:nth-child(5) {
+      background-color: $oc-violet-5;
+      transform: translate(-$border-radius + $offset-angled, $offset-angled)
+        rotate(-45deg);
+    }
+    &:nth-child(6) {
+      background-color: $oc-orange-5;
+      transform: translate(-$border-radius + $offset-angled, -$offset-angled)
+        rotate(-135deg);
+    }
+    &:nth-child(7) {
+      background-color: $oc-pink-5;
+      transform: translate(-$border-radius - $offset-angled, $offset-angled)
+        rotate(45deg);
+    }
+    &:nth-child(8) {
+      background-color: $oc-gray-5;
+      transform: translate(-$border-radius - $offset-angled, -$offset-angled)
+        rotate(135deg);
+    }
+  }
+}
+
+.star {
+  height: calc($base-size * 0.7);
+  width: calc($base-size * 0.7);
+  corner-shape: scoop;
+  border-radius: 60%;
+  background-color: hsla(327, 100%, 50%, 1);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1111 1111' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+    radial-gradient(
+      circle at 0% 99%,
+      hsla(11, 100%, 50%, 1) 0%,
+      transparent 67%
+    ),
+    radial-gradient(
+      circle at 46% 94%,
+      hsla(327, 100%, 50%, 1) 0%,
+      transparent 81%
+    ),
+    radial-gradient(
+      circle at 93% 95%,
+      hsla(236, 100%, 23%, 1) 0%,
+      transparent 66%
+    ),
+    radial-gradient(
+      circle at 89% 8%,
+      hsla(206, 100%, 9%, 1) 0%,
+      transparent 150%
+    );
+  background-blend-mode: overlay, normal, normal, normal, normal;
+}
+
+.small .puzzle {
+  grid-gap: 1px;
+}
+
+.large .puzzle {
+  grid-gap: 3px;
+}
+
+.puzzle {
+  width: 100%;
+  height: 75%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 2px;
+  scale: 1.33333333;
+  .black {
+    background-color: $oc-gray-9;
+  }
+  .yellow {
+    background-color: $oc-yellow-6;
+  }
+
+  .blue {
+    background-color: $oc-blue-6;
+  }
+
+  .green {
+    background-color: $oc-green-6;
+  }
+}
+
+.small .lazy {
+  grid-gap: 2px;
+}
+
+.large .lazy {
+  grid-gap: 4px;
+}
+
+.lazy {
+  width: 80%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 3px;
+  > div {
+    border-radius: 10px;
+  }
+  .blue {
+    background-color: $oc-blue-6;
+  }
+  .green {
+    background-color: $oc-green-6;
+  }
+  .red {
+    background-color: $oc-red-6;
+  }
+  .yellow {
+    background-color: $oc-yellow-6;
+  }
+}
+
+.strata {
+  width: 100%;
+  height: 100%;
+  background-color: $oc-orange-5;
+  position: relative;
+  .triangle {
+    clip-path: polygon(50% 20%, 0% 100%, 100% 100%);
+    background-color: $oc-white;
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(100%, -66.66666%) rotate(90deg);
+    &:after {
+      content: "";
+      clip-path: polygon(50% 20%, 0% 100%, 100% 100%);
+      background-color: $oc-orange-5;
+      width: 35%;
+      height: 35%;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    &:nth-child(2) {
+      transform: translate(0%, -33.33333%) rotate(-90deg);
+    }
+  }
+}

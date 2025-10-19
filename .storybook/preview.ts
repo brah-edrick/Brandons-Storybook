@@ -2,6 +2,12 @@ import type { Preview } from '@storybook/react-vite'
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: [], // Ensure the order array is empty for alphabetical sorting
+      },
+    },
     controls: {
       matchers: {
        color: /(background|color)$/i,
@@ -15,7 +21,9 @@ const preview: Preview = {
       // 'off' - skip a11y checks entirely
       test: 'todo'
     }
+    
   },
+  
 };
 
 export default preview;

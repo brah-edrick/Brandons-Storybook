@@ -4,7 +4,7 @@ import { AnimatedMediaButton, iconMap } from "./AnimatedRoundButton";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Sept 25/ 25.09.23 - AnimatedMediaButton",
+  title: "2025 / Sept 23rd - AnimatedMediaButton",
   component: AnimatedMediaButton,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
