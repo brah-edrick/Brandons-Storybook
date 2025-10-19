@@ -1,5 +1,12 @@
 import "./styles.scss";
-import { Pause, Play, Stop, Rewind, Shuffle, Repeat } from "phosphor-react";
+import {
+  PauseIcon,
+  PlayIcon,
+  StopIcon,
+  RewindIcon,
+  ShuffleIcon,
+  RepeatIcon,
+} from "@phosphor-icons/react";
 
 type AllowedIcons = "Play" | "Pause" | "Stop" | "Rewind" | "Shuffle" | "Repeat";
 
@@ -10,12 +17,12 @@ type Props = {
 };
 
 export const iconMap: Record<AllowedIcons, React.ComponentType<any>> = {
-  Play,
-  Pause,
-  Stop,
-  Rewind,
-  Shuffle,
-  Repeat,
+  Play: PlayIcon,
+  Pause: PauseIcon,
+  Stop: StopIcon,
+  Rewind: RewindIcon,
+  Shuffle: ShuffleIcon,
+  Repeat: RepeatIcon,
 };
 
 export const AnimatedMediaButton = ({ size, icon, color }: Props) => {

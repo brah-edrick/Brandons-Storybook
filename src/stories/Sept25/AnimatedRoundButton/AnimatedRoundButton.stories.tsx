@@ -42,7 +42,7 @@ export const Default: Story = {
 export const WithPause: Story = {
   args: {
     size: "medium",
-    icon: "Rewind",
+    icon: "Pause",
     color: "green",
   },
 };

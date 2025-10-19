@@ -1,0 +1,143 @@
+.mix-blend-mode-difference {
+  mix-blend-mode: difference;
+}
+
+$height: 10rem;
+
+.logotype {
+  font-family: "system-ui", sans-serif;
+  font-size: calc($height / 5);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  gap: 0.25rem;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  color: #fff;
+}
+
+section.section {
+  width: 100%;
+  height: $height;
+  box-sizing: border-box;
+}
+
+.dark {
+  background: #000;
+}
+
+.light {
+  background: #fff;
+}
+
+.scroll-container {
+  width: 100%;
+  min-width: $height * 2;
+  height: 100%;
+  overflow-y: auto;
+  max-height: $height * 2;
+  box-sizing: border-box;
+}
+
+.default-container {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: $height * 3;
+  height: 100%;
+  max-height: $height * 2;
+  position: relative;
+  overflow: hidden;
+  border: 20px solid #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.covertype {
+  font-family: "system-ui", sans-serif;
+  font-size: calc($height / 2);
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  svg {
+    animation: spin 10s linear infinite;
+  }
+}
+
+.overlay-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url("https://fastly.picsum.photos/id/756/1000/1000.jpg?hmac=oMOv_VODKlBBHOyRzNNwe5Mvj3FjHqRAbHpmZuolGeE");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+}
+
+.overlay-image-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+$square-dimension: 200px;
+
+.circle {
+  width: $square-dimension;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.circle-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.animated-circle {
+  position: absolute;
+  z-index: 100;
+  animation: sweep 10s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(200%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
